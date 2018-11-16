@@ -1,34 +1,49 @@
 class School
   
-  attr_accessor :roster
-  attr_reader :name
+  attr_reader :name, :roster
   
   def initialize(name)
     @name = name
     @roster = {}
+   # @roster = Hash.new {|k, v| k[v] = []}
   end
   
-  def add_student(name, year)
-    @roster[year] = [] unless @roster[year]
-    @roster[year] << name
+  def add_student(name, grade)
+   # self.roster[grade] << name
+    @roster[grade] = [] unless roster[grade]
+    @roster[grade] << name
   end
   
   
-  def grade(year)
-    @roster[year]
+  
+  
+  def grade(grade)
+    #self.roster[grade]
+    @roster[grade]
   end
    
   def sort
+    
+    #self.roster.select do |grade, students|
+     # students.sort!
       sorted = {}
-    @roster.each do |key, value|
-      sorted[key] = value.sort
+      @roster.each do |k, v|
+        sorted[k] = v.sort
+      end
+      sorted
+      
     end
-    sorted
-  end
+  
+ end     
     
     
+    
+   
   
   
-end
+   
+  
+  
+
     
     
